@@ -9,10 +9,13 @@ const ReplySchema = new Schema(
             default: () => new Types.ObjectId()
         },
         replyBody: {
-            type: String
+            type: String,
+            required: "You reply doesn't contain any text!",
+            trim: true
         },
         writtenBy: {
-            type: String
+            type: String,
+            required: 'No author specified!'
         },
         createdAt: {
             type: Date,
@@ -30,10 +33,13 @@ const ReplySchema = new Schema(
 const CommentSchema = new Schema(
     {
         writtenBy: {
-            type: String
+            type: String,
+            required: 'No author specified!'
         },
         commentBody: {
-            type: String
+            type: String,
+            required: "You comment doesn't contain any text!",
+            trim: true
         },
         createdAt: {
             type: Date,
